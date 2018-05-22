@@ -6,8 +6,10 @@ module.exports = function core(defaultLibraryName) {
                   const specifiers = path.node.specifiers
                   const source = path.node.source
 
-                  if (source.value !== defaultLibraryName && source.value.indexOf(defaultLibraryName + '/') === -1) {
-                      return
+                  if (source.value !== defaultLibraryName
+                      && source.value.indexOf(defaultLibraryName + '/merchant') === -1
+                      && source.value.indexOf(defaultLibraryName + '/dp') === -1) {
+                          return
                   }
 
                   if (!types.isImportDefaultSpecifier(specifiers[0]) ) {
